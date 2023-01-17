@@ -28,7 +28,7 @@ is a CTGAN model variation that makes the work of learning the data for the unde
 is based on the VAE-based Deep Learning data synthesiser that was demonstrated in the paper Modeling Tabular Data Using Conditional GAN at NeurIPS 2020.
 
 ---------------
-file GaussianCopula_py
+GaussianCopula_py
 ---------------
 The GaussianCopula carried out the following tasks each time we fitted it:
 
