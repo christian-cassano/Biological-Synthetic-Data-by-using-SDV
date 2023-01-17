@@ -11,9 +11,11 @@ In this project we use The Synthetic Data Vault (SDV) which is an ecosystem of l
 When training machine learning models, synthetic data can then be used to complement, enhance, and in some circumstances replace real data. It also makes it possible to test software systems that depend on data, like machine learning, without running the risk of disclosing sensitive information.
 
 It's powered by a number of deep learning-based and probabilistic graphical modelling algorithms. We make use of novel hierarchical generative modelling and recursive sampling approaches to enable a range of data storage architectures.
+
 ------------
 SINGLE TABLE DATA MODELS IN SDV ECOSYSTEM USED:
 ------------
+
 1 - GaussianCopulaModel 
 is a tool to model multivariative distributions by using Copula function, 
 
