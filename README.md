@@ -1,6 +1,7 @@
 # Generating-Synthetic-Data-by-using-SDV
+----------------------------------------
 Biological Synthetic Data by using SDV
-
+----------------------------------------
 OVERVIEW:
 
 Variational AutoEncoders is a deep learning approach for building synthetic data.
