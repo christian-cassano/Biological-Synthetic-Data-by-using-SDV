@@ -1,33 +1,16 @@
 # Generating-Synthetic-Data-by-using-SDV
-2
 Biological Synthetic Data by using SDV
-3
-​
-4
-​
-5
+
 OVERVIEW:
-6
-​
-7
+
 Variational AutoEncoders is a deep learning approach for building synthetic data.
-8
-​
-9
+
 In this project we use The Synthetic Data Vault (SDV) which is an ecosystem of libraries for creating synthetic data that enables users to quickly learn about single-table, datasets in order to create new Biological synthetic data that is identical to the original dataset in terms of format and statistical characteristics.
-10
-​
-11
+
 When training machine learning models, synthetic data can then be used to complement, enhance, and in some circumstances replace real data. It also makes it possible to test software systems that depend on data, like machine learning, without running the risk of disclosing sensitive information.
-12
-​
-13
+
 It's powered by a number of deep learning-based and probabilistic graphical modelling algorithms. We make use of novel hierarchical generative modelling and recursive sampling approaches to enable a range of data storage architectures.
-14
-​
-15
-​
-16
+
 SINGLE TABLE DATA MODELS IN SDV ECOSYSTEM USED:
 
 1 - GaussianCopulaModel 
