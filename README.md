@@ -13,7 +13,7 @@ When training machine learning models, synthetic data can then be used to comple
 It's powered by a number of deep learning-based and probabilistic graphical modelling algorithms. We make use of novel hierarchical generative modelling and recursive sampling approaches to enable a range of data storage architectures.
 
 ------------
-SINGLE TABLE DATA MODELS IN SDV ECOSYSTEM USED:
+SINGLE TABLE DATA MODELS USED:
 ------------
 
 1 - GaussianCopulaModel 
