@@ -49,3 +49,13 @@ After those steps, when we used the sample method to generate new data for our t
     - Revert the sampled values by computing their standard normal CDF and then applying the inverse CDF of their marginal distributions.
     - Revert the RDT transformations to go back to the original data format.
     
+the GaussianCopula had to learn and reproduce the individual distributions of each column in our table, the Marginal Probability Distributions play a critical role. with this model Using the get distributions method, we can investigate the distributions used by the GaussianCopula to design each column.
+
+then we can asing a certain distribution to a specific colum, the conditional sampling allows us to generate only values that satisfy certain conditions by sampling from a conditional distribution using the GaussianCopula model. As a list of sdv.sampling, these conditional values can be passed to the sample conditions method. Condition objects or a dataframe can be passed to the sample remaining columns method.
+after a sdv.sampling is specified. We can pass in the desired conditions as a dictionary and specify the number of rows for that condition using the Condition object.
+
+in this way we can improve the quality of our new data.
+
+CopulaGAN_py
+----
+
