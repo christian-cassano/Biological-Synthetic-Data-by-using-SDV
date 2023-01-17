@@ -26,3 +26,23 @@ is a CTGAN model variation that makes the work of learning the data for the unde
 
 3 - TVAEmodel
 is based on the VAE-based Deep Learning data synthesiser that was demonstrated in the paper Modeling Tabular Data Using Conditional GAN at NeurIPS 2020.
+
+---------------
+file GaussianCopula_py
+---------------
+The GaussianCopula carried out the following tasks each time we fitted it:
+
+    - learn the data types and format for the passed information.
+    - Reversible Data Transforms are used to convert non-numerical and null data into a fully numerical representation from which we can learn the
+      probability distribution
+    - Comprehend the probability distribution for each column in the table.
+    - Discover the correlations between the freshly generated random variables.
+    - Convert the values in each numerical column to their marginal distribution CDF values before applying an inverse CDF transformation of a
+      standard normal to them.
+     
+After those steps, when we used the sample method to generate new data for our table, the model did the following:
+
+    - Sample from a Multivariate Standard Normal distribution with the learned correlations.
+    - Revert the sampled values by computing their standard normal CDF and then applying the inverse CDF of their marginal distributions.
+    - Revert the RDT transformations to go back to the original data format.
+    
