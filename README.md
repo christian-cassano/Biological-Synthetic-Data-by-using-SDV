@@ -1,7 +1,8 @@
 # Generating-Synthetic-Data-by-using-SDV
-----------------------------------------
+
 Biological Synthetic Data by using SDV
-----------------------------------------
+-------
+
 OVERVIEW:
 ---------
 Variational AutoEncoders is a deep learning approach for building synthetic data.
@@ -12,7 +13,7 @@ When training machine learning models, synthetic data can then be used to comple
 
 It's powered by a number of deep learning-based and probabilistic graphical modelling algorithms. We make use of novel hierarchical generative modelling and recursive sampling approaches to enable a range of data storage architectures.
 
-------------
+
 SINGLE TABLE DATA MODELS USED:
 ------------
 
@@ -30,7 +31,6 @@ is a CTGAN model variation that makes the work of learning the data for the unde
 3 - TVAEmodel
 is based on the VAE-based Deep Learning data synthesiser that was demonstrated in the paper Modeling Tabular Data Using Conditional GAN at NeurIPS 2020.
 
----------------
 GaussianCopula_py
 ---------------
 The GaussianCopula carried out the following tasks each time we fitted it:
