@@ -36,17 +36,18 @@ GaussianCopula_py
 The GaussianCopula carried out the following tasks each time we fitted it:
 
     - learn the data types and format for the passed information.
-    - Reversible Data Transforms are used to convert non-numerical and null data into a fully numerical representation from which we can learn the
-      probability distribution
+    - Reversible Data Transforms are used to convert non-numerical and null data into a fully numerical 
+      representation from which we can learn the probability distribution
     - Comprehend the probability distribution for each column in the table.
-    - Convert the values in each numerical column to their marginal distribution CDF values before applying an inverse CDF transformation of a
-      standard normal to them.
+    - Convert the values in each numerical column to their marginal distribution CDF values before applying 
+      an inverse CDF transformation of a standard normal to them.
     - Discover the correlations between the freshly generated random variables.
     
 After those steps, when we used the sample method to generate new data for our table, the model did the following:
 
     - Sample from a Multivariate Standard Normal distribution with the learned correlations.
-    - Revert the sampled values by computing their standard normal CDF and then applying the inverse CDF of their marginal distributions.
+    - Revert the sampled values by computing their standard normal CDF and then applying 
+      the inverse CDF of their marginal distributions.
     - Revert the RDT transformations to go back to the original data format.
     
 the GaussianCopula had to learn and reproduce the individual distributions of each column in our table, the Marginal Probability Distributions play a critical role. with this model Using the get distributions method, we can investigate the distributions used by the GaussianCopula to design each column.
