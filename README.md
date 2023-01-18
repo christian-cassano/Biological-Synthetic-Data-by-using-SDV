@@ -83,12 +83,14 @@ In the CopulaGAN There are a number of extra hyperparameters that regulate its l
 
       epochs and batch_size:
     
-      These arguments specify how many iterations the model will run to optimise its parameters, as well as how many samples  
-      will be used in each step. The default values are 300 and 500, respectively, and batch size must always be a multiple of 10.  
+      These arguments specify how many iterations the model will run to optimise its parameters, as well as 
+      how many samples will be used in each step. The default values are 300 and 500, respectively, 
+      and batch size must always be a multiple of 10.  
    
-      These hyperparameters have a direct effect not only on the length of the training process but also on the performance of the data, so for new           
-      datasets, you might prefer to start by defining a low value on both of them to see how long the training process takes on your data and then
-      increase the number to acceptable values to improve performance.
+      These hyperparameters have a direct effect not only on the length of the training process but also
+      on the performance of the data, so for new datasets, you might prefer to start by defining a low value 
+      on both of them to see how long the training process takes on your data and then increase the number 
+      to acceptable values to improve performance.
       
       
       
