@@ -39,10 +39,10 @@ The GaussianCopula carried out the following tasks each time we fitted it:
     - Reversible Data Transforms are used to convert non-numerical and null data into a fully numerical representation from which we can learn the
       probability distribution
     - Comprehend the probability distribution for each column in the table.
-    - Discover the correlations between the freshly generated random variables.
     - Convert the values in each numerical column to their marginal distribution CDF values before applying an inverse CDF transformation of a
       standard normal to them.
-     
+    - Discover the correlations between the freshly generated random variables.
+    
 After those steps, when we used the sample method to generate new data for our table, the model did the following:
 
     - Sample from a Multivariate Standard Normal distribution with the learned correlations.
@@ -54,8 +54,35 @@ the GaussianCopula had to learn and reproduce the individual distributions of ea
 then we can asing a certain distribution to a specific colum, the conditional sampling allows us to generate only values that satisfy certain conditions by sampling from a conditional distribution using the GaussianCopula model. As a list of sdv.sampling, these conditional values can be passed to the sample conditions method. Condition objects or a dataframe can be passed to the sample remaining columns method.
 after a sdv.sampling is specified. We can pass in the desired conditions as a dictionary and specify the number of rows for that condition using the Condition object.
 
-in this way we can improve the quality of our new data.
+in this way we can improve the quality of our new Synthetic data.
 
 CopulaGAN_py
 ----
+The CopulaGAN carried out the following tasks each time we fitted it:
+
+      - learn the data types and format for the passed information.
+      - Reversible Data Transforms are used to convert non-numerical and null data into a fully numerical representation from which we can learn the
+        probability distribution
+      - Comprehend the probability distribution for each column in the table.
+      - Convert the values in each numerical column to their marginal distribution CDF values before applying an inverse CDF transformation of a
+        standard normal to them.
+      - Fit a CTGAN model to the transformed data to learn how each column is related to the others.
+      
+      
+After those steps, when we used the sample method to generate new data for our table, the model did the following:
+
+    - Sample rows from the CTGAN model.
+    - Revert the sampled values by computing their standard normal CDF and then applying the inverse CDF of their marginal distributions.
+    - Revert the RDT transformations to go back to the original data format.
+    
+Then we can asing a certain distribution to a specific colum, the conditional sampling allows us to generate only values that satisfy certain conditions by sampling from a conditional distribution using the GaussianCopula model. As a list of sdv.sampling, these conditional values can be passed to the sample conditions method. Condition objects or a dataframe can be passed to the sample remaining columns method.
+after a sdv.sampling is specified. We can pass in the desired conditions as a dictionary and specify the number of rows for that condition using the Condition object.
+
+In the CopulaGAN There are a number of extra hyperparameters that regulate its learning behaviour and have an impact on the model's performance in terms of the quality of the generated data and computation time:
+
+      epochs and batch_size:
+    
+      These arguments specify how many iterations the model will run to optimise its parameters, as well as how many samples
+      will be used in each step. The default values are 300 and 500, respectively, and batch size must always be a multiple of 10.
+   
 
