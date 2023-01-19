@@ -31,7 +31,7 @@ is a CTGAN model variation that makes the work of learning the data for the unde
 3 - TVAEmodel
 is based on the VAE-based Deep Learning data synthesiser that was demonstrated in the paper Modeling Tabular Data Using Conditional GAN at NeurIPS 2020.
 
-GaussianCopula_py
+GaussianCopula.py
 ---------------
 The GaussianCopula carried out the following tasks each time we fitted it:
 
@@ -57,7 +57,7 @@ after a sdv.sampling is specified. We can pass in the desired conditions as a di
 
 in this way we can improve the quality of our new Synthetic data.
 
-CopulaGAN_py
+CopulaGAN.py
 ----
 The CopulaGAN carried out the following tasks each time we fitted it:
 
