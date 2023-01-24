@@ -103,7 +103,7 @@ The TVAE model carried out the following tasks:
     - Then Incorporate the instance into the data. 
     - Makes artificial replicas of existing data. 
     - If required anonymize PII information. 
-    - Set hyperparameters to enhance the quality of the output.
+    - If needed set hyperparameters to enhance the quality of the output.
       
       
       
