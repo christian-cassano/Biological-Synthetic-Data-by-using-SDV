@@ -94,8 +94,26 @@ In the CopulaGAN There are a number of extra hyperparameters that regulate its l
       to acceptable values to improve performance.
       
       
+TVAE_Model.py
+----  
+
+The TVAE model carried out the following tasks:
+ 
+    - it Create a TVAE instance. 
+    - Then Incorporate the instance into the data. 
+    - Makes artificial replicas of existing data. 
+    - If required anonymize PII information. 
+    - Set hyperparameters to enhance the quality of the output.
       
       
+      
+      
+      
+      
+      
+      
+      
+
       
       
       
