@@ -104,6 +104,28 @@ The TVAE model carried out the following tasks:
     - Makes artificial replicas of existing data. 
     - If required anonymize PII information. 
     - If needed set hyperparameters to enhance the quality of the output.
+    
+    
+   
+utility.py
+----
+
+The utility file holds all the defined fuctions that are needed for each model.
+
+    - def report(data,new_data,primary_key = "ID") :
+    - def creation_metadata(data,primary_key) : 
+    - def plotting_column(model,data,new_data,primary_key,column_names=['AOD','Neutrophils','Hemoglobin','Platelets','BMB','BMRS']): 
+    - def plotting_column_pair(model,data,new_data,primary_key,column_names=['AOD','Neutrophils','Hemoglobin','Platelets','BMB','BMRS']):
+    - def plotting_data_synthetic(model,data,new_data,column_names=['AOD','Neutrophils','Hemoglobin','Platelets','BMB','BMRS']):
+    - def get_histo(model,data):
+    
+    
+    
+Folders: 
+------
+
+   - 
+
       
       
       
