@@ -203,9 +203,8 @@ SDMetrics
     
     
     
-Libraries Version
+Libraries used and their versions
 ----
-    
     
     Python 3.9.12 
     matplotlib 3.6.2
