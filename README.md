@@ -124,8 +124,29 @@ The utility file holds all the defined fuctions that are needed for each model.
 Folders: 
 ------
 
-   - 
+   - SyntheticData 
+     in which we can find the new data generated for each model. 
+     
+   - Histo
+     in which we can find the histogram of the probability distribution 
+     regarding each colums of the real dataset, this process is crucial in order to improve the synthetic outcome.
+     
+  - Image
+    in wihich we can find the graph that compare the hemoglobine for the genuine dataset with the synthetic one for every model,
+    moreover we can also find the graph for the SDMetrics evaluation.
+    
+    
+    
+SDMetrics
+----
 
+    Synthetic Data Metrics (SDMetrics) is an open source Python library for assessing tabular synthetic data. 
+    Utilizing a range of measures, compare fake data to real data, create visual reports.
+    
+    we can use the SDMetrics library with synthetic data produced by any model at any time because it is model-agnostic.
+    
+    with SDmetric Producing reports for project is simple. Reports concentrate on a certain feature of synthetic data, 
+    like data quality. Drill down using them until you have the answers.
       
       
       
