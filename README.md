@@ -112,13 +112,63 @@ utility.py
 
 The utility file holds all the defined fuctions that are needed for each model.
 
-    - def report(data,new_data,primary_key = "ID") :
-    - def creation_metadata(data,primary_key) : 
-    - def plotting_column(model,data,new_data,primary_key,column_names=['AOD','Neutrophils','Hemoglobin','Platelets','BMB','BMRS']): 
-    - def plotting_column_pair(model,data,new_data,primary_key,column_names=['AOD','Neutrophils','Hemoglobin','Platelets','BMB','BMRS']):
-    - def plotting_data_synthetic(model,data,new_data,column_names=['AOD','Neutrophils','Hemoglobin','Platelets','BMB','BMRS']):
-    - def get_histo(model,data):
+    - def report(data,new_data,primary_key = "ID")
+    ------------
+    Creation of the final report. It takes 3 parameters as arguments:
+    data: an array representing the real data
+    new_data: an array representing the synthetic data
+    primary_key: string, representing the primary_key
     
+    
+    - def creation_metadata(data,primary_key)
+    ------------
+    Creation of the matadeta for the SDmetrics. It takes 2 parameters as arguments:
+    data: an array representing the real data
+    primary_key: string, representing the primary_key
+
+    
+    - def plotting_column(model,data,new_data,primary_key,column_names=['AOD','Neutrophils','Hemoglobin','Platelets','BMB','BMRS'])
+    ------------
+    Plot Real vs. Synthetic Data for column_names ('chosen'). It takes 4 parameters as arguments:
+    model: the type of model used
+    new_data: an array representing the synthetic data
+    primary_key: string, representing the primary_key
+    column_names: the colums we want to plot 
+    
+    
+    - def plotting_column_pair(model,data,new_data,primary_key,column_names=['AOD','Neutrophils','Hemoglobin','Platelets','BMB','BMRS'])
+    ------------
+    Plot Real vs. Synthetic Data for columns_names 'Chosen_colum' and 'Gender'. It takes 4 parameters as arguments:
+    model: the type of model used
+    data: an array representing the real data
+    new_data: an array representing the synthetic data
+    primary_key: string, representing the primary_key
+    column_names: the colums we want to plot 
+    
+    
+    - def plotting_data_synthetic(model,data,new_data,column_names=['AOD','Neutrophils','Hemoglobin','Platelets','BMB','BMRS'])
+    ------------
+    Plot the synthetic data in comparison with the real data. It takes 4 parameters as arguments:
+    model: the type of model used
+    data: an array representing the real data
+    new_data: an array representing the synthetic data
+    primary_key: string, representing the primary_key
+    column_names: the colums we want to plot
+    
+    
+    - def get_histo(model,data)
+    ------------
+    Creation of the Hinstogram plot for each colums of the Real data. It takes 2 parameters as arguments:
+    model: the type of model used
+    data: an array representing the real data
+    
+    
+     - def anonymize_fields(name_of_the_fields,category_of_the_fields)
+    ------------
+    Anonymization of the data. It takes 2 parameters as arguments:
+    name_of_the_fields: The name of the field that we want to anonymize
+    category_of_the_fields: The category of the field that we want to use when we generate fake values for it
+    (if we want to use it just add the paramiter anonymize_fields into the model file)
     
     
 Folders: 
@@ -150,8 +200,21 @@ SDMetrics
     
     with SDmetric Producing reports for project is simple. Reports concentrate on a certain feature of synthetic data, 
     like data quality. Drill down using them until you have the answers.
-      
-      
+    
+    
+    
+Libraries Version
+----
+    
+    
+    Python 3.9.12 
+    matplotlib 3.6.2
+    numpy 1.22.4
+    pandas 1.5.2
+    sdmetrics 0.8.1
+    sdv 0.17.2
+    copulas 0.7.0
+    ctgan 0.5.2
       
       
       
