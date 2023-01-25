@@ -124,14 +124,17 @@ The utility file holds all the defined fuctions that are needed for each model.
 Folders: 
 ------
 
-   - SyntheticData 
+   - SyntheticData
+   --------------- 
      in which we can find the new data generated for each model. 
      
    - Histo
+   --------------- 
      in which we can find the histogram of the probability distribution 
      regarding each colums of the real dataset, this process is crucial in order to improve the synthetic outcome.
      
   - Image
+  --------------- 
     in wihich we can find the graph that compare the hemoglobine for the genuine dataset with the synthetic one for every model,
     moreover we can also find the graph for the SDMetrics evaluation.
     
