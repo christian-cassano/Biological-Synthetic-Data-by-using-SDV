@@ -1,0 +1,22 @@
+pandas 1.5.2
+numpy 1.22.4
+sdv 0.17.2
+sdv.tabular 0.17.2
+sdv.evaluation 0.17.2
+sdv.sampling 0.17.2
+sdv.Metadata 0.17.2
+sdmetrics 0.8.1
+sdmetrics.reports.single_table 0.8.1
+sdmetrics.reports.utils 0.8.1
+copulas 0.7.0
+ctgan 0.5.2
+matplotlib 3.6.2
+openpyxl
+pyaml_env
+Python 3.9.12 
+  
+    
+    
+   
+    
+    
