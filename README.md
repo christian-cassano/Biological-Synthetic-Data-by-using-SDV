@@ -1,38 +1,22 @@
-# Generating-Synthetic-Data-by-using-SDV
-
-Biological Synthetic Data by using SDV
+# Biological Synthetic Data by using SDV
 -------
-
-OVERVIEW:
----------
-Variational AutoEncoders is a deep learning approach for building synthetic data.
 
 In this project we use The Synthetic Data Vault (SDV) which is an ecosystem of libraries for creating synthetic data that enables users to quickly learn about single-table, datasets in order to create new Biological synthetic data that is identical to the original dataset in terms of format and statistical characteristics.
 
 When training machine learning models, synthetic data can then be used to complement, enhance, and in some circumstances replace real data. It also makes it possible to test software systems that depend on data, like machine learning, without running the risk of disclosing sensitive information.
 
-It's powered by a number of deep learning-based and probabilistic graphical modelling algorithms. We make use of novel hierarchical generative modelling and recursive sampling approaches to enable a range of data storage architectures.
+It is powered by a number of deep learning-based and probabilistic graphical modelling algorithms. We make use of novel hierarchical generative modelling and recursive sampling approaches to enable a range of data storage architectures.
 
 
 SINGLE TABLE DATA MODELS USED:
 ------------
 
 1 - GaussianCopulaModel 
+---------------
 is a tool to model multivariative distributions by using Copula function, 
-
 Copula function is a multivariate cumulative distribution function, where each variable's marginal probability distribution has a uniform shape on the range [0, 1]. is useful in order to explain or represent the interdependence (correlation) between random variables.
 this mathematical function enables us to analyse the dependencies between the marginal distributions of multiple random variables in order to characterise the joint distribution of those random variables.
 
-
-2 - CopulaGANModel 
-is a CTGAN model variation that makes the work of learning the data for the underlying CTGAN model easier by utilising the CDF-based modification that the GaussianCopulas apply.
-
-
-3 - TVAEmodel
-is based on the VAE-based Deep Learning data synthesiser that was demonstrated in the paper Modeling Tabular Data Using Conditional GAN at NeurIPS 2020.
-
-GaussianCopula.py
----------------
 The GaussianCopula carried out the following tasks each time we fitted it:
 
     - learn the data types and format for the passed information.
@@ -57,8 +41,12 @@ after a sdv.sampling is specified. We can pass in the desired conditions as a di
 
 in this way we can improve the quality of our new Synthetic data.
 
-CopulaGAN.py
-----
+
+2 - CopulaGANModel 
+---------------
+is a CTGAN model variation that makes the work of learning the data for the underlying CTGAN model easier by utilising the CDF-based modification that the GaussianCopulas apply.
+
+
 The CopulaGAN carried out the following tasks each time we fitted it:
 
       - learn the data types and format for the passed information.
@@ -92,10 +80,11 @@ In the CopulaGAN There are a number of extra hyperparameters that regulate its l
       on the performance of the data, so for new datasets, you might prefer to start by defining a low value 
       on both of them to see how long the training process takes on your data and then increase the number 
       to acceptable values to improve performance.
-      
-      
-TVAE_Model.py
-----  
+
+
+3 - TVAEmodel
+---------------
+is based on the VAE-based Deep Learning data synthesiser that was demonstrated in the paper Modeling Tabular Data Using Conditional GAN at NeurIPS 2020.
 
 The TVAE model carried out the following tasks:
  
@@ -103,94 +92,9 @@ The TVAE model carried out the following tasks:
     - Then Incorporate the instance into the data. 
     - Makes artificial replicas of existing data. 
     - If required anonymize PII information. 
-    - If needed set hyperparameters to enhance the quality of the output.
-    
-    
+    - If needed set hyperparameters to enhance the quality of the output.  
    
-utility.py
-----
-
-The utility file holds all the defined fuctions that are needed for each model.
-
-    - def report(data,new_data,primary_key = "ID")
-    ------------
-    Creation of the final report. It takes 3 parameters as arguments:
-    data: an array representing the real data
-    new_data: an array representing the synthetic data
-    primary_key: string, representing the primary_key
-    
-    
-    - def creation_metadata(data,primary_key)
-    ------------
-    Creation of the matadeta for the SDmetrics. It takes 2 parameters as arguments:
-    data: an array representing the real data
-    primary_key: string, representing the primary_key
-
-    
-    - def plotting_column(model,data,new_data,primary_key,column_names=['AOD','Neutrophils','Hemoglobin','Platelets','BMB','BMRS'])
-    ------------
-    Plot Real vs. Synthetic Data for column_names ('chosen'). It takes 4 parameters as arguments:
-    model: the type of model used
-    new_data: an array representing the synthetic data
-    primary_key: string, representing the primary_key
-    column_names: the colums we want to plot 
-    
-    
-    - def plotting_column_pair(model,data,new_data,primary_key,column_names=['AOD','Neutrophils','Hemoglobin','Platelets','BMB','BMRS'])
-    ------------
-    Plot Real vs. Synthetic Data for columns_names 'Chosen_colum' and 'Gender'. It takes 4 parameters as arguments:
-    model: the type of model used
-    data: an array representing the real data
-    new_data: an array representing the synthetic data
-    primary_key: string, representing the primary_key
-    column_names: the colums we want to plot 
-    
-    
-    - def plotting_data_synthetic(model,data,new_data,column_names=['AOD','Neutrophils','Hemoglobin','Platelets','BMB','BMRS'])
-    ------------
-    Plot the synthetic data in comparison with the real data. It takes 4 parameters as arguments:
-    model: the type of model used
-    data: an array representing the real data
-    new_data: an array representing the synthetic data
-    primary_key: string, representing the primary_key
-    column_names: the colums we want to plot
-    
-    
-    - def get_histo(model,data)
-    ------------
-    Creation of the Hinstogram plot for each colums of the Real data. It takes 2 parameters as arguments:
-    model: the type of model used
-    data: an array representing the real data
-    
-    
-     - def anonymize_fields(name_of_the_fields,category_of_the_fields)
-    ------------
-    Anonymization of the data. It takes 2 parameters as arguments:
-    name_of_the_fields: The name of the field that we want to anonymize
-    category_of_the_fields: The category of the field that we want to use when we generate fake values for it
-    (if we want to use it just add the paramiter anonymize_fields into the model file)
-    
-    
-Folders: 
-------
-
-   - SyntheticData
-   --------------- 
-     in which we can find the new data generated for each model. 
-     
-   - Histo
-   --------------- 
-     in which we can find the histogram of the probability distribution 
-     regarding each colums of the real dataset, this process is crucial in order to improve the synthetic outcome.
-     
-  - Image
-  --------------- 
-    in wihich we can find the graph that compare the hemoglobine for the genuine dataset with the synthetic one for every model,
-    moreover we can also find the graph for the SDMetrics evaluation.
-    
-    
-    
-SDMetrics
+Evaluation Synthetic Data Metohod 
 ----
 
     Synthetic Data Metrics (SDMetrics) is an open source Python library for assessing tabular synthetic data. 
@@ -201,19 +105,40 @@ SDMetrics
     with SDmetric Producing reports for project is simple. Reports concentrate on a certain feature of synthetic data, 
     like data quality. Drill down using them until you have the answers.
     
+       
+TO GET STARTED
+---------------
+
+#config.yaml
+
+In order to run script the users need to set the configuration file config.yaml as follow:
+
+    1 - change paramiters for the model we wish to run.
+ 
+    2 - active the desired model. 
+        active : "type of the model we want to run"
+
+
+
+Folders: 
+---------------
+
+   # SyntheticData 
+     in which we can find the new data generated for each model. 
+     
+   # Histo
+     in which we can find the histogram of the probability distribution 
+     regarding each colums of the real dataset, this process is crucial in order to improve the synthetic outcome.
+     
+   # Image 
+     in wihich we can find the graph that compare the hemoglobine for the genuine dataset with the synthetic one for every model,
+     moreover we can also find the graph for the SDMetrics evaluation.
+
     
+Libraries used and their versions 
+---------------
     
-Libraries used and their versions
-----
-    
-    Python 3.9.12 
-    matplotlib 3.6.2
-    numpy 1.22.4
-    pandas 1.5.2
-    sdmetrics 0.8.1
-    sdv 0.17.2
-    copulas 0.7.0
-    ctgan 0.5.2
+     see requirements.txt
       
       
       
