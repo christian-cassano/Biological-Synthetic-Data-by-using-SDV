@@ -106,21 +106,24 @@ Evaluation Synthetic Data Metohod
     like data quality. Drill down using them until you have the answers.
     
        
-TO GET STARTED
+Getting Started
 ---------------
 
-#config.yaml
+to install the application clone the repository use pip:
 
-In order to run script the users need to set the configuration file config.yaml as follow:
+    git clone https://github.com/christian-cassano/Biological-Synthetic-Data-by-using-SDV
+    cd Biological-Synthetic-Data-by-using-SDV
+    pip install -r requirements.txt
+
+In order to run script the user need to set the configuration file #config.yaml as follow:
 
     1 - change paramiters for the model we wish to run.
- 
     2 - active the desired model. 
         active : "type of the model we want to run"
 
 
 
-Folders: 
+# FOLDERS: 
 ---------------
 
    # SyntheticData 
@@ -135,12 +138,7 @@ Folders:
      moreover we can also find the graph for the SDMetrics evaluation.
 
     
-Libraries used and their versions 
----------------
-    
-     see requirements.txt
-      
-      
+
       
       
       
