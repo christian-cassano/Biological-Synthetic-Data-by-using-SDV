@@ -7,6 +7,37 @@ When training machine learning models, synthetic data can then be used to comple
 
 It is powered by a number of deep learning-based and probabilistic graphical modelling algorithms. We make use of novel hierarchical generative modelling and recursive sampling approaches to enable a range of data storage architectures.
 
+       
+Getting Started
+---------------
+
+to install the application clone the repository use pip:
+
+    git clone https://github.com/christian-cassano/Biological-Synthetic-Data-by-using-SDV
+    cd Biological-Synthetic-Data-by-using-SDV
+    pip install -r requirements.txt
+
+In order to run script the user need to set the configuration file #config.yaml as follow:
+
+    1 - change paramiters for the model we wish to run.
+    2 - active the desired model. 
+        active : "type of the model we want to run"
+
+
+
+# FOLDERS: 
+---------------
+
+   # SyntheticData 
+     in which we can find the new data generated for each model. 
+     
+   # Histo
+     in which we can find the histogram of the probability distribution 
+     regarding each colums of the real dataset, this process is crucial in order to improve the synthetic outcome.
+     
+   # Image 
+     in wihich we can find the graph that compare the hemoglobine for the genuine dataset with the synthetic one for every model,
+     moreover we can also find the graph for the SDMetrics evaluation.
 
 SINGLE TABLE DATA MODELS USED:
 ------------
@@ -105,37 +136,7 @@ Evaluation Synthetic Data Metohod
     with SDmetric Producing reports for project is simple. Reports concentrate on a certain feature of synthetic data, 
     like data quality. Drill down using them until you have the answers.
     
-       
-Getting Started
----------------
 
-to install the application clone the repository use pip:
-
-    git clone https://github.com/christian-cassano/Biological-Synthetic-Data-by-using-SDV
-    cd Biological-Synthetic-Data-by-using-SDV
-    pip install -r requirements.txt
-
-In order to run script the user need to set the configuration file #config.yaml as follow:
-
-    1 - change paramiters for the model we wish to run.
-    2 - active the desired model. 
-        active : "type of the model we want to run"
-
-
-
-# FOLDERS: 
----------------
-
-   # SyntheticData 
-     in which we can find the new data generated for each model. 
-     
-   # Histo
-     in which we can find the histogram of the probability distribution 
-     regarding each colums of the real dataset, this process is crucial in order to improve the synthetic outcome.
-     
-   # Image 
-     in wihich we can find the graph that compare the hemoglobine for the genuine dataset with the synthetic one for every model,
-     moreover we can also find the graph for the SDMetrics evaluation.
 
     
 
