@@ -19,13 +19,14 @@ to install the application clone the repository use pip:
 
 In order to run script the user need to set the configuration file #config.yaml as follow:
 
-    1 - change paramiters for the model we wish to run.
-    2 - active the desired model. 
+    1 - Change paramiters for the model we wish to run.
+    2 - Choose the model 
+    3 - Activate the desired model. 
         active : "type of the model we want to run"
 
 
 
-# FOLDERS: 
+# FOLDERS:
 ---------------
 
    # SyntheticData 
