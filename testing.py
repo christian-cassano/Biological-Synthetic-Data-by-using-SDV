@@ -41,7 +41,7 @@ class TestAnonymizeFields(unittest.TestCase):
 		'''
 			Test for the anonymize_fields method
 		'''
-		# Creation of the input parameters for the anonymize_fields method
+		# Creation of the input parameters for the anonymize_fields method 
 		name_of_the_fields_test = ['col1','col2','col3']
 		category_of_the_fields_test = ['address','job','phone_number']
 		# Creation of the expected  dictionary returns from anonymize_fields method
@@ -60,4 +60,5 @@ class TestAnonymizeFields(unittest.TestCase):
 
 
 if __name__ == "__main__":
+	print("This is Test!")
 	unittest.main()	
