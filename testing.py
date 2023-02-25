@@ -4,6 +4,15 @@ import utilities
 
 class TestCreationMetadata(unittest.TestCase):
 
+	def passing_data_with_null_size(self):
+		
+		data_test = pd.DataFrame()
+		primary_key_test = 'id'
+		
+		metadata_map_test_result  = {"primary_key" : primary_key_test, "fields": []}
+		self.assertEqual( utilities.creation_metadata(data_test,primary_key_test), metadata_map_test_result)
+		
+
 	def test_creation_metadata(self):
 		'''
 		Test for the creation_metadata method
@@ -29,11 +38,7 @@ class TestCreationMetadata(unittest.TestCase):
 		metadata_map_test_result  = {"primary_key" : primary_key_test, "fields": data_test_result}		
 		# Assert if the returns of the 	creation_metadata method is what we expect 
 		self.assertEqual( utilities.creation_metadata(data_test,primary_key_test), metadata_map_test_result)
-		self.assertTrue(utilities.creation_metadata(data_test,primary_key_test)== metadata_map_test_result)
-		#Change the expected metadata dictionary to assert the contrary 
-		data_test_result['col1']['subtype'] = 'float'	
-		self.assertFalse(utilities.creation_metadata(data_test,primary_key_test)== metadata_map_test_result)	
-
+		
 
 class TestAnonymizeFields(unittest.TestCase):
 	def test_anonymize_fields(self):
@@ -50,14 +55,7 @@ class TestAnonymizeFields(unittest.TestCase):
 					  'col3' : 'phone_number'}
 		#Test if the expect and the return value are equal 				  
 		self.assertEqual( utilities.anonymize_fields(name_of_the_fields_test,category_of_the_fields_test), result_map)
-		self.assertTrue(utilities.anonymize_fields(name_of_the_fields_test,category_of_the_fields_test)== result_map)
-		#Change the expected metadata dictionary to assert the contrary 
-		result_map['col1'] = 'person'	
-		self.assertFalse(utilities.anonymize_fields(name_of_the_fields_test,category_of_the_fields_test)== result_map)			  
-
-
-
-
+		
 
 if __name__ == "__main__":
 	print("This is Test!")
