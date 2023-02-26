@@ -4,14 +4,13 @@ import utilities
 
 class TestCreationMetadata(unittest.TestCase):
 
-	def passing_data_with_null_size(self):
+	
+	def test_passing_no_rows(self):
 		
-		data_test = pd.DataFrame()
-		primary_key_test = 'id'
-		
-		metadata_map_test_result  = {"primary_key" : primary_key_test, "fields": []}
-		self.assertEqual( utilities.creation_metadata(data_test,primary_key_test), metadata_map_test_result)
-		
+		data_without_rows = pd.DataFrame()
+		primary_key_test = 'SYNTHETIC1'
+		metadata_map_test_expected  = {"primary_key" : primary_key_test, "fields": {}}
+		self.assertEqual( utilities.creation_metadata(data_without_rows,primary_key_test), metadata_map_test_expected)
 
 	def test_creation_metadata(self):
 		'''
