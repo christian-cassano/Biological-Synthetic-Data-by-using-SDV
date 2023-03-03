@@ -49,7 +49,7 @@ def creation_metadata(data,primary_key):
     #Check if primary_key is of e.g. SYNTETHIC12
     config = parse_config("./config.yaml")
     model_name = config["models"]["active"]
-    #Retrieve the Regex of the primary key
+    #Retrieve the Regex of  primary key
     regex    = config["models"][model_name]["regex_primary_key"]
     
     for el in list(data[primary_key]):
