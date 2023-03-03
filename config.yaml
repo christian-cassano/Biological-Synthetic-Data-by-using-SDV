@@ -2,7 +2,7 @@ models:
   active: GaussianCopula
 
   TVAE:  
-    data_path: ./Synthetic_Dataset_run_06_12_2021_163219.xlsx
+    data_path: ./Synthetic_Dataset_run_06_12_2021_163218.xlsx
     primary_key: ID
     regex_primary_key: ^(SYNTHETIC)\d+
     epochs: 1
