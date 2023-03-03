@@ -12,7 +12,7 @@ class TestCreationMetadata(unittest.TestCase):
 	model_name = config["models"]["active"]
 	regex = config["models"][model_name]["regex_primary_key"]
 	
-	# From a dataFrame and a String, the test is going to check if the function will throw an exception when the Dataframe has no rows
+	#From a dataFrame and a String, the test is going to check if the function will throw an exception when the Dataframe has no rows
 	def test_passing_no_rows(self):
 		
 		data_without_rows = pd.DataFrame(data={'ID': [],
