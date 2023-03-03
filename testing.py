@@ -5,13 +5,14 @@ import numpy as np
 from pyaml_env import parse_config
 
 class TestCreationMetadata(unittest.TestCase):
+	# Retrieve the regex from the config file
 	global regex	
 	
 	config = parse_config("./config.yaml")
 	model_name = config["models"]["active"]
 	regex = config["models"][model_name]["regex_primary_key"]
 	
-	
+	# From a dataFrame and a String, the test is going to check if the function will throw an exception when the Dataframe has no rows
 	def test_passing_no_rows(self):
 		
 		data_without_rows = pd.DataFrame(data={'ID': [],
@@ -22,32 +23,37 @@ class TestCreationMetadata(unittest.TestCase):
 		with self.assertRaises(Exception):
 			utilities.creation_metadata(data_without_rows,primary_key_test)
 
+
+	# From a dataFrame and a String, the test is going to check if the function will throw an exception when the Dataframe has no rows
 	def test_not_passing_data(self):
 		
 		data_test = None		
 		primary_key_test = 'ID'
 		with self.assertRaises(Exception):
-			utilities.creation_metadata(data_without_rows,primary_key_test)		
-	
+			utilities.creation_metadata(data_without_rows,primary_key_test)	
+
+	# From a dataFrame and a String, the test is going to check if the function will throw an exception when the Primary key is None
 	def test_not_passing_primary_key(self):
 		data_test = pd.DataFrame(data={'ID': ['SYNTHETIC1'],'col1':[1]})
 		primary_key_test = None
 		with self.assertRaises(Exception):
 			utilities.creation_metadata(data_test,primary_key_test)
 
-
+	# From a dataFrame and a String, the test is going to check if the function will throw an exception when the Regex of the primary key values are not satisfied
 	def test_wrong_format_primary_key(self):
 		data_test = pd.DataFrame(data={'ID':['1']})
 		primary_key_test = 'ID'
 		with self.assertRaises(Exception):
 			utilities.creation_metadata(data_test,primary_key_test)
 
+	# From a dataFrame and a String, the test is going to check if the function will throw an exception when the Primary key is not string type
 	def test_primary_key_not_type_string(self):
 		data_test = pd.DataFrame()
 		primary_key_test = 1
 		with self.assertRaises(Exception):
 			utilities.creation_metadata(data_test,primary_key_test)		
-		
+
+	# From a dataFrame and a String, the test is going to check if the function will throw an exception when the Primary key is not present as feature of the dataframe	
 	def test_primary_key_is_not_present_as_feature(self):
 		data_test = pd.DataFrame(data={'col1': [1],
 									           'col2' : [2],
@@ -55,7 +61,8 @@ class TestCreationMetadata(unittest.TestCase):
 		primary_key_test = 'ID'
 		with self.assertRaises(Exception):
 			utilities.creation_metadata(data_test,primary_key_test)
-	
+
+	# From a dataFrame and a String, the test is going to check if the function behaves properly if we pass a column with negative integer. We expect the same behaviour as positive integer. 
 	def test_negative_integer(self):
 		primary_key_test = 'ID'
 		data_test = pd.DataFrame(data={'ID': ["SYNTHETIC1", "SYNTHETIC2"],
@@ -72,9 +79,13 @@ class TestCreationMetadata(unittest.TestCase):
 
 	def test_creation_metadata(self):
 		'''
-		Test for the creation_metadata method
-		'''
+		General test for the creation_metadata method.
+		
+		From a dataFrame and a String, the test is going to check if the function will return a dictionary with key the primary key, and value its own value. 
+		Moreover, another key Fields with value a dicrionary representing the structure of the feature.
 
+		'''
+		
 		#Setting a primary key
 		primary_key_test = 'ID'
 		# Creation of a sample Dataframe 
@@ -139,9 +150,11 @@ class TestAnonymizeFields(unittest.TestCase):
 	def test_anonymize_fields(self):
 
 		'''
-			Test for the anonymize_fields method
+			General Test for the anonymize_fields method.
+
+			From two Arrays, the test is going to check if the function will return a dictionary with key name of the field with value category of the field.
 		'''
-		# From two Arrays, the test is going to check if the function will return a dictionary with key name of the field with value category of the field 
+		
 		#Creation of the input parameters for the anonymize_fields method 
 		name_of_the_fields_test = ['col1','col2','col3']
 		category_of_the_fields_test = ['address','job','phone_number']
