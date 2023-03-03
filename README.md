@@ -3,12 +3,13 @@
 
 In this project we use The Synthetic Data Vault (SDV) which is an ecosystem of libraries for creating synthetic data that enables users to quickly learn about single-table, datasets in order to create new Biological synthetic data that is identical to the original dataset in terms of format and statistical characteristics.
 
-When training machine learning models, synthetic data can then be used to complement, enhance, and in some circumstances replace real data. It also makes it possible to test software systems that depend on data, like machine learning, without running the risk of disclosing sensitive information.
+When training machine learning models, synthetic data can then be used to complement, enhance, and in 
+some circumstances replace real data. It also makes it possible to test software systems that depend on data, like machine learning, without running the risk of disclosing sensitive information.
 
 It is powered by a number of deep learning-based and probabilistic graphical modelling algorithms. We make use of novel hierarchical generative modelling and recursive sampling approaches to enable a range of data storage architectures.
 
        
-Getting Started
+# Getting Started
 ---------------
 
 to install the application clone the repository use pip:
@@ -19,31 +20,41 @@ to install the application clone the repository use pip:
 
 In order to run script the user need to set the configuration file #config.yaml as follow:
 
-    1 - Change paramiters for the model we wish to run.
-    2 - Choose the model 
-    3 - Activate the desired model. 
+    1 - Choose and Activate the desired model. 
         active : "type of the model we want to run"
-
+    2 - Specify dataset path
+    3 - Pass the Primary key of the Dataset
+    4 - Specify the regex for the primary key elements 
+    5 - Change parameters, such as epochs, batch size, number of rows for the model we wish to run.
+    6 - (Optional) - Specify Anonymization for the desired features - Activate by setting "True" 
 
 
 # FOLDERS:
 ---------------
+find the outcome of the script in the following folders:
 
-   # SyntheticData 
-     in which we can find the new data generated for each model. 
+   ## SyntheticData 
+     in which there are the new data generated. 
      
-   # Histo
-     in which we can find the histogram of the probability distribution 
-     regarding each colums of the real dataset, this process is crucial in order to improve the synthetic outcome.
+   ## Histo
+     in which there are the histogram of the probability distribution regarding each columns of the real dataset. 
+     this process is crucial in order understand  and improve the synthetic generation outcome.
      
-   # Image 
-     in wihich we can find the graph that compare the hemoglobine for the genuine dataset with the synthetic one for every model,
-     moreover we can also find the graph for the SDMetrics evaluation.
+   ## Image 
+     in which there are the graph that compare the hemoglobine for the genuine dataset with the synthetic one and the graph for the SDMetrics evaluation. 
+     this could be done for each model
 
-SINGLE TABLE DATA MODELS USED:
+# IMPORTANT REMINDER:  
+-----------
+        Always double check the result outcome with SDmetrics chart to asses the purity of the new data generated 
+
+
+# OVERVIEW OF THE PROJECT TO BETTER UNDERSTAND WHAT THE MODELS INVOLVED DO
+
+## SINGLE TABLE DATA MODELS USED:
 ------------
 
-1 - GaussianCopulaModel 
+## 1 - GaussianCopulaModel 
 ---------------
 is a tool to model multivariative distributions by using Copula function, 
 Copula function is a multivariate cumulative distribution function, where each variable's marginal probability distribution has a uniform shape on the range [0, 1]. is useful in order to explain or represent the interdependence (correlation) between random variables.
@@ -68,13 +79,13 @@ After those steps, when we used the sample method to generate new data for our t
     
 the GaussianCopula had to learn and reproduce the individual distributions of each column in our table, the Marginal Probability Distributions play a critical role. with this model Using the get distributions method, we can investigate the distributions used by the GaussianCopula to design each column.
 
-then we can asing a certain distribution to a specific colum, the conditional sampling allows us to generate only values that satisfy certain conditions by sampling from a conditional distribution using the GaussianCopula model. As a list of sdv.sampling, these conditional values can be passed to the sample conditions method. Condition objects or a dataframe can be passed to the sample remaining columns method.
+then we can assing a certain distribution to a specific column, the conditional sampling allows us to generate only values that satisfy certain conditions by sampling from a conditional distribution using the GaussianCopula model. As a list of sdv.sampling, these conditional values can be passed to the sample conditions method. Condition objects or a dataframe can be passed to the sample remaining columns method.
 after a sdv.sampling is specified. We can pass in the desired conditions as a dictionary and specify the number of rows for that condition using the Condition object.
 
 in this way we can improve the quality of our new Synthetic data.
 
 
-2 - CopulaGANModel 
+## 2 - CopulaGANModel 
 ---------------
 is a CTGAN model variation that makes the work of learning the data for the underlying CTGAN model easier by utilising the CDF-based modification that the GaussianCopulas apply.
 
@@ -97,7 +108,7 @@ After those steps, when we used the sample method to generate new data for our t
       CDF of their marginal distributions.
     - Revert the RDT transformations to go back to the original data format.
     
-Then we can asing a certain distribution to a specific colum, the conditional sampling allows us to generate only values that satisfy certain conditions by sampling from a conditional distribution using the GaussianCopula model. As a list of sdv.sampling, these conditional values can be passed to the sample conditions method. Condition objects or a dataframe can be passed to the sample remaining columns method.
+Then we can assing a certain distribution to a specific column, the conditional sampling allows us to generate only values that satisfy certain conditions by sampling from a conditional distribution using the GaussianCopula model. As a list of sdv.sampling, these conditional values can be passed to the sample conditions method. Condition objects or a dataframe can be passed to the sample remaining columns method.
 after a sdv.sampling is specified. We can pass in the desired conditions as a dictionary and specify the number of rows for that condition using the Condition object.
 
 In the CopulaGAN There are a number of extra hyperparameters that regulate its learning behaviour and have an impact on the model's performance in terms of the quality of the generated data and computation time:
@@ -114,7 +125,7 @@ In the CopulaGAN There are a number of extra hyperparameters that regulate its l
       to acceptable values to improve performance.
 
 
-3 - TVAEmodel
+## 3 - TVAEmodel
 ---------------
 is based on the VAE-based Deep Learning data synthesiser that was demonstrated in the paper Modeling Tabular Data Using Conditional GAN at NeurIPS 2020.
 
@@ -126,7 +137,7 @@ The TVAE model carried out the following tasks:
     - If required anonymize PII information. 
     - If needed set hyperparameters to enhance the quality of the output.  
    
-Evaluation Synthetic Data Metohod 
+## Evaluation Synthetic Data Method 
 ----
 
     Synthetic Data Metrics (SDMetrics) is an open source Python library for assessing tabular synthetic data. 
@@ -139,24 +150,4 @@ Evaluation Synthetic Data Metohod
     
 
 
-    
-
-      
-      
-      
-      
-      
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+# For more details Please visit the [SDV gitHub](https://github.com/sdv-dev)
