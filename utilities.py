@@ -5,6 +5,8 @@ from sdmetrics.reports.utils import get_column_pair_plot
 from matplotlib import pyplot as plt
 import numpy as np
 import warnings
+import re
+from pyaml_env import parse_config
 warnings.filterwarnings("ignore")
 
 def report(data,new_data,primary_key = "ID"):
@@ -37,7 +39,25 @@ def creation_metadata(data,primary_key):
     Returns:
        dictionary metadata
     '''
-    # Creation dictionary with key the column name and value the column type 
+    #Check if the data is empty or None
+    if  data.empty:
+        raise Exception("Empty Data Set")
+    if not (primary_key in data.columns):
+        raise Exception("Primary Key is not present as Feature")
+              
+
+    #Check if primary_key is of e.g. SYNTETHIC12
+    config = parse_config("./config.yaml")
+    model_name = config["models"]["active"]
+    #Retrieve the Regex of the primary key
+    regex    = config["models"][model_name]["regex_primary_key"]
+    
+    for el in list(data[primary_key]):
+        if re.search(regex,el)==None and instance(el,string):
+            raise Exception("Wrong Primary Key Formatting")
+            break 
+
+    # Creation dictionary with key the column name and value the column type
     dict_column = dict((key,value) for key,value in data.dtypes.items())
     column_information = {}
     # Loop to construct a column_information dict with key the column name and value a dictionary 
@@ -53,7 +73,7 @@ def creation_metadata(data,primary_key):
         elif el == primary_key:
             column_information[el]["type"]= "id"
             column_information[el]["subtype"]=  "string"
-            column_information[el]["regex"]=  "[0-9]"
+            column_information[el]["regex"]=  regex
         else:
             column_information[el]["type"]= "categorical"  
     # creation metadata map with 
@@ -73,8 +93,21 @@ def anonymize_fields(name_of_the_fields,category_of_the_fields):
     
     Returns:
         dictionary with key name of the Anonymized fields and value the associated category
-    (if we want to use it just add the parameter  anonymize_fields into the config file)    
-'''
+    (if we want to use it just add the parameter  anonymize_fields into the config file)
+    
+    '''
+    #Check if the Arguments are not None, otherwise raise an exception.
+    if name_of_the_fields == None or  category_of_the_fields == None:
+            raise Exception("Passing None argument") 
+    # Check if the Arguments are not Array type, otherwise raise an exception.
+    if not isinstance(name_of_the_fields,(list,np.ndarray)) or not isinstance(category_of_the_fields,(list,np.ndarray)):
+         raise Exception("No Type List/Array") 
+    # Check if the Arguments have the same length, otherwise raise an exception.
+    if len(name_of_the_fields) != len(category_of_the_fields):
+            raise Exception("Length of name_of_the_fields different from Length of category_of_the_fields") 
+
+    name_of_the_fields = np.array(name_of_the_fields,dtype='U')
+    category_of_the_fields = np.array(category_of_the_fields,dtype='U')
     return dict((name_of_the_fields[i],category_of_the_fields[i])  for i in range(len(name_of_the_fields)))
 
 

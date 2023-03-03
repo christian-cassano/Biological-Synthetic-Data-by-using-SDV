@@ -4,6 +4,7 @@ models:
   TVAE:  
     data_path: ./Synthetic_Dataset_run_06_12_2021_163219.xlsx
     primary_key: ID
+    regex_primary_key: ^(SYNTHETIC)\d+
     epochs: 1
     batch_size: 500 
     num_rows: 200
@@ -17,6 +18,7 @@ models:
   CopulaGAN:  
     data_path: ./Synthetic_Dataset_run_06_12_2021_163219.xlsx
     primary_key: ID
+    regex_primary_key: ^(SYNTHETIC)\d+
     epochs: 1
     batch_size: 500 
     num_rows: 200
@@ -29,6 +31,7 @@ models:
   GaussianCopula:  
     data_path: ./Synthetic_Dataset_run_06_12_2021_163219.xlsx
     primary_key: ID
+    regex_primary_key: ^(SYNTHETIC)\d+
     num_rows: 200
     Anonymization:
       active: False
