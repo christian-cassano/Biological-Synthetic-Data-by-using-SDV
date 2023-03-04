@@ -49,7 +49,7 @@ find the outcome of the script in the following folders:
         Always double check the result outcome with SDmetrics chart to asses the purity of the new data generated 
 
 
-# OVERVIEW OF THE PROJECT TO BETTER UNDERSTAND WHAT THE MODELS INVOLVED DO
+# OVERVIEW OF THE PROJECT TO BETTER UNDERSTAND WHAT THE MODELS DO
 
 ## SINGLE TABLE DATA MODELS USED:
 ------------
