@@ -38,7 +38,7 @@ find the outcome of the script in the following folders:
      
    ## Histo
      in which there are the histogram of the probability distribution regarding each columns of the real dataset. 
-     this process is crucial in order understand  and improve the synthetic generation outcome.
+     this process is crucial in order understand and improve the synthetic generation outcome.
      
    ## Image 
      in which there are the graph that compare the hemoglobine for the genuine dataset with the synthetic one and the graph for the SDMetrics evaluation. 
